@@ -1,0 +1,103 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "kwp",
+    "nameCn": "Knowledge Work Plugins",
+    "repoName": "knowledge-work-plugins-deploy-guide",
+    "oneLiner": "33.2k stars，Apache-2.0，Anthropic 开源的岗位技能插件合集，覆盖销售、数据、法务、财务等场景",
+    "officialRepo": "https://github.com/anthropics/knowledge-work-plugins",
+    "officialDocs": "https://github.com/anthropics/knowledge-work-plugins#plugin-marketplace",
+    "stars": "33.2k",
+    "license": "Apache-2.0",
+    "highlights": [
+      "33.2k stars：2026-01 建仓，10 个月持续增长",
+      "按岗位拆分：销售、数据、法务、财务、市场各自独立",
+      "斜杠命令：/sales:call-prep、/data:write-query 直接调",
+      "技能自动触发：相关场景出现时自动加载",
+      "插件市场：一条命令加市场，再按名字装包",
+      "Apache-2.0：可读可改可二次分发"
+    ],
+    "mcpSupport": "插件内部分能力会挂 MCP server；本仓库不注册 MCP，只负责安装与配置。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-10-27",
+    "verification": [
+      [
+        "仓库元数据已核对：33.2k stars、Apache-2.0、2026-01 建仓",
+        "已核对 2026-10-27"
+      ],
+      [
+        "README 确认安装命令为 plugin marketplace add + plugin install",
+        "已核对 2026-10-27"
+      ],
+      [
+        "未实测安装（本机未登录 Claude Code）",
+        "说明 2026-10-27"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "node"
+      ],
+      "steps": [
+        "npm install -g @anthropic-ai/claude-code",
+        "claude plugin marketplace add anthropics/knowledge-work-plugins",
+        "claude plugin install sales@knowledge-work-plugins",
+        "claude plugin list | grep -q knowledge-work-plugins && echo '插件已安装' || echo '未生效，先运行 claude --version 确认版本'"
+      ],
+      "stepsPs": [
+        "npm.cmd install -g @anthropic-ai/claude-code",
+        "claude plugin marketplace add anthropics/knowledge-work-plugins",
+        "claude plugin install sales@knowledge-work-plugins",
+        "claude plugin list | Select-String 'knowledge-work-plugins'"
+      ],
+      "source": "https://github.com/anthropics/knowledge-work-plugins#plugin-marketplace"
+    },
+    "pitfalls": [
+      "`claude: command not found`：先 `npm install -g @anthropic-ai/claude-code`",
+      "`/plugin` 不识别：Claude Code 版本太旧，先升级",
+      "装完没反应：插件按场景触发，不是常驻菜单",
+      "市场加不上：网络问题，重试 `plugin marketplace add`",
+      "命令不存在：确认插件名和岗位前缀，如 `/sales:`",
+      "不要一次装全部：插件越多上下文越挤"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/knowledge-work-plugins-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/knowledge-work-plugins-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "Knowledge Work Plugins 部署",
+    "Claude 岗位插件",
+    "Claude Code 插件市场",
+    "销售 技能 插件",
+    "数据分析 插件 Claude",
+    "法务 合同 插件",
+    "Anthropic 插件 合集",
+    "Claude 斜杠命令",
+    "知识工作者 AI 工具",
+    "knowledge work plugins 教程"
+  ],
+  "topics": [
+    "claude",
+    "claude-code",
+    "plugins",
+    "ai-agents",
+    "productivity",
+    "skills"
+  ]
+}
